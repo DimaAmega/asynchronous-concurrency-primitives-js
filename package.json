@@ -1,0 +1,11 @@
+{
+  "name": "asynchronous-mutex",
+  "version": "0.0.1",
+  "description": "Simple minimalistic asynchronous mutex for js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
