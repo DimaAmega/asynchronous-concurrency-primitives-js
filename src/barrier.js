@@ -1,4 +1,5 @@
 const resolveFunctions = Symbol()
+const TO_MUCH_UNLOCKS = "Too much UnLocks was invoked :)"
 
 class Barrier {
   constructor() {
@@ -14,9 +15,12 @@ class Barrier {
   }
 
   UnLock() {
-    const cb = this[resolveFunctions].shift()
-    if (cb) cb()
-    else throw "Too much UnLocks was invoked :)"
+    const release =
+      this[resolveFunctions].shift() ||
+      (() => {
+        throw TO_MUCH_UNLOCKS
+      })
+    release()
   }
 }
 
