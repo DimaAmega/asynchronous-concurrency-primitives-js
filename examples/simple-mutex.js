@@ -1,6 +1,3 @@
-# asynchronous-mutex-js
-### simple example (see examples/simple-mutex.js)
-```js
 const Mutex = require(`../src/mutex`)
 const ColorLog = require("../src/helpers/color-log")
 const sleep = require("../src/helpers/sleep")
@@ -37,25 +34,3 @@ const CreateWorker = (sleepTime, workerNumber) => async () => {
   // wait all tasks
   await Promise.all(promises)
 })()
-```
-### stdout:
-```bash
-CORUTINE 0: Lock mutex
-CORUTINE 1: Lock mutex
-CORUTINE 2: Lock mutex
-CORUTINE 0: In CS
-CORUTINE 0: Sleep 0s ...
-CORUTINE 0: Out CS
-CORUTINE 0: mutex UnLock was invoked :)
-CORUTINE 0: Done
-CORUTINE 1: In CS
-CORUTINE 1: Sleep 1s ...
-CORUTINE 1: Out CS
-CORUTINE 1: mutex UnLock was invoked :)
-CORUTINE 1: Done
-CORUTINE 2: In CS
-CORUTINE 2: Sleep 2s ...
-CORUTINE 2: Out CS
-CORUTINE 2: mutex UnLock was invoked :)
-CORUTINE 2: Done
-```
