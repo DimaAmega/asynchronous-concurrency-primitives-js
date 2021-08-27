@@ -1,22 +1,21 @@
-const UNDEFINED_RESOLVE_FUNCTION = "RESOLVE_FUNCTION_IS_UNDEFINED";
-const resolveFunction = Symbol();
+const [barrier, count] = [Symbol(), Symbol()]
+const Barrier = require("./barrier")
 
 class Mutex {
   constructor() {
-    this[resolveFunction] = UNDEFINED_RESOLVE_FUNCTION;
-  }
-
-  async _createLock() {
-    await new Promise((r) => (this[resolveFunction] = r));
+    this[barrier] = new Barrier()
+    this[count] = 0
   }
 
   async Lock() {
-    await this._createLock();
+    this[count]++
+    if (this[count] > 1) await this[barrier].Lock()
   }
 
   UnLock() {
-    this[resolveFunction]();
+    if (this[count] > 1) this[barrier].UnLock()
+    this[count]--
   }
 }
 
-module.exports = Mutex;
+module.exports = Mutex
