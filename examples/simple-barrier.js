@@ -12,6 +12,7 @@ const c = new ColorLog()
   await b.Lock()
   c.log(`Done`, Corutines[0])
 })()
+
 ;(async () => {
   c.log(`Sleep 1s ...`, Corutines[1])
   await sleep(1)
