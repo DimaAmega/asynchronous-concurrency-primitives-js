@@ -6,11 +6,11 @@ const ColorLog = require("../src/helpers/color-log")
 const sleep = require("../src/helpers/sleep")
 
 // setup
-const COroutineS_NUMBER = 3
-const Coroutines = [...Array(COroutineS_NUMBER).keys()].map(
+const CoroutineS_NUMBER = 3
+const Coroutines = [...Array(CoroutineS_NUMBER).keys()].map(
   (n) => `coroutine ${n}`
 )
-const sleepTimes = [...Array(COroutineS_NUMBER).keys()]
+const sleepTimes = [...Array(CoroutineS_NUMBER).keys()]
 
 // Global variables
 const m = new Mutex()
@@ -40,22 +40,22 @@ const CreateWorker = (sleepTime, workerNumber) => async () => {
 ```
 ### stdout:
 ```bash
-COroutine 0: Lock mutex
-COroutine 1: Lock mutex
-COroutine 2: Lock mutex
-COroutine 0: In CS
-COroutine 0: Sleep 0s ...
-COroutine 0: Out CS
-COroutine 0: mutex UnLock was invoked :)
-COroutine 0: Done
-COroutine 1: In CS
-COroutine 1: Sleep 1s ...
-COroutine 1: Out CS
-COroutine 1: mutex UnLock was invoked :)
-COroutine 1: Done
-COroutine 2: In CS
-COroutine 2: Sleep 2s ...
-COroutine 2: Out CS
-COroutine 2: mutex UnLock was invoked :)
-COroutine 2: Done
+Coroutine 0: Lock mutex
+Coroutine 1: Lock mutex
+Coroutine 2: Lock mutex
+Coroutine 0: In CS
+Coroutine 0: Sleep 0s ...
+Coroutine 0: Out CS
+Coroutine 0: mutex UnLock was invoked :)
+Coroutine 0: Done
+Coroutine 1: In CS
+Coroutine 1: Sleep 1s ...
+Coroutine 1: Out CS
+Coroutine 1: mutex UnLock was invoked :)
+Coroutine 1: Done
+Coroutine 2: In CS
+Coroutine 2: Sleep 2s ...
+Coroutine 2: Out CS
+Coroutine 2: mutex UnLock was invoked :)
+Coroutine 2: Done
 ```

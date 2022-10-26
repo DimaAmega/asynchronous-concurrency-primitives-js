@@ -3,11 +3,11 @@ const ColorLog = require("../src/helpers/color-log")
 const sleep = require("../src/helpers/sleep")
 
 // setup
-const COroutineS_NUMBER = 3
-const Coroutines = [...Array(COroutineS_NUMBER).keys()].map(
+const CoroutineS_NUMBER = 3
+const Coroutines = [...Array(CoroutineS_NUMBER).keys()].map(
   (n) => `coroutine ${n}`
 )
-const sleepTimes = [...Array(COroutineS_NUMBER).keys()]
+const sleepTimes = [...Array(CoroutineS_NUMBER).keys()]
 
 // Global variables
 const m = new Mutex()

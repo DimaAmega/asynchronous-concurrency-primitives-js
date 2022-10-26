@@ -1,4 +1,4 @@
-const COLORS = {
+const CoLORS = {
   // add new colors here
   c1: "\x1b[33m",
   c2: "\x1b[36m",
@@ -10,7 +10,7 @@ class ColorLog {
   constructor() {
     let num = 1
     this.colors = {
-      ...COLORS,
+      ...CoLORS,
       next: function () {
         if (this[`c${num}`]) return this[`c${num++}`]
         num = 1
