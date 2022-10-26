@@ -3,26 +3,26 @@ const ColorLog = require("../src/helpers/color-log")
 const sleep = require("../src/helpers/sleep")
 
 // setup
-const CORUTINES_NUMBER = 3
-const Corutines = [...Array(CORUTINES_NUMBER).keys()].map(
-  (n) => `corutine ${n}`
+const COroutineS_NUMBER = 3
+const Coroutines = [...Array(COroutineS_NUMBER).keys()].map(
+  (n) => `coroutine ${n}`
 )
-const sleepTimes = [...Array(CORUTINES_NUMBER).keys()]
+const sleepTimes = [...Array(COroutineS_NUMBER).keys()]
 
 // Global variables
 const m = new Mutex()
 const c = new ColorLog()
 
 const CreateWorker = (sleepTime, workerNumber) => async () => {
-  c.log(`Lock mutex`, Corutines[workerNumber])
+  c.log(`Lock mutex`, Coroutines[workerNumber])
   await m.Lock()
-  c.log(`In CS`, Corutines[workerNumber])
-  c.log(`Sleep ${sleepTime}s ...`, Corutines[workerNumber])
+  c.log(`In CS`, Coroutines[workerNumber])
+  c.log(`Sleep ${sleepTime}s ...`, Coroutines[workerNumber])
   await sleep(sleepTime)
-  c.log(`Out CS`, Corutines[workerNumber])
+  c.log(`Out CS`, Coroutines[workerNumber])
   m.UnLock()
-  c.log(`mutex UnLock was invoked :)`, Corutines[workerNumber])
-  c.log(`Done`, Corutines[workerNumber])
+  c.log(`mutex UnLock was invoked :)`, Coroutines[workerNumber])
+  c.log(`Done`, Coroutines[workerNumber])
 }
 
 ;(async () => {
