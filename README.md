@@ -1,4 +1,6 @@
 # asynchronous-mutex-js
+[![Node.js CI](https://github.com/DimaAmega/asynchronous-mutex-js/actions/workflows/tests.js.yml/badge.svg)](https://github.com/DimaAmega/asynchronous-mutex-js/actions/workflows/tests.js.yml)
+
 ### simple example (see examples/simple-mutex.js)
 ```js
 const Mutex = require(`../src/mutex`)
