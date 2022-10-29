@@ -21,15 +21,16 @@ describe('Simple tests', () => {
         mutex.UnLock()
     }
 
+    afterEach(() => {
+        mutex = undefined
+        threadsInCs = 0
+    });
+
     beforeEach(() => {
         mutex = new Mutex()
         threadsInCs = 0
     });
     
-    afterEach(() => {
-        mutex = undefined
-        threadsInCs = 0
-    });
 
     test('two parallel workers', async () => {
         const workersCount = 1
