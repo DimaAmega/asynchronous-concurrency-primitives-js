@@ -33,21 +33,21 @@ describe('Simple tests', () => {
 
     test('two parallel workers', async () => {
         const workersCount = 1
-        await Promise.all(Array(workersCount).fill().map(() => executeExclusive(CSJob)))
+        await Promise.all(Array(workersCount).fill().map(async () => await executeExclusive(CSJob)))
     });
 
     test('five parallel workers', async () => {
         const workersCount = 5
-        await Promise.all(Array(workersCount).fill().map(() => executeExclusive(CSJob)))
+        await Promise.all(Array(workersCount).fill().map(async () => await executeExclusive(CSJob)))
     });
 
     test('fifteen parallel workers', async () => {
         const workersCount = 15
-        await Promise.all(Array(workersCount).fill().map(() => executeExclusive(CSJob)))
+        await Promise.all(Array(workersCount).fill().map(async () => await executeExclusive(CSJob)))
     });
 
     test('a lot of parallel workers :)', async () => {
         const workersCount = 1500
-        await Promise.all(Array(workersCount).fill().map(() => executeExclusive(CSJob)))
+        await Promise.all(Array(workersCount).fill().map(async () => await executeExclusive(CSJob)))
     });
 });
