@@ -8,7 +8,7 @@ describe('Simple tests', () => {
     const CSJob = async () => {
         // START CS
         if (++threadsInCs > 1) {
-            throw "A few forkers in CS"
+            throw "A few workers in CS"
         }
         await sleep(1e-4 * Math.random())
         // END CS
@@ -33,7 +33,7 @@ describe('Simple tests', () => {
     
 
     test('two parallel workers', async () => {
-        const workersCount = 1
+        const workersCount = 2
         await Promise.all(Array(workersCount).fill().map(async () => await executeExclusive(CSJob)))
     });
 
