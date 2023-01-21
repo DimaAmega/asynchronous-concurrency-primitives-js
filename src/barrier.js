@@ -6,12 +6,12 @@ class Barrier {
     this[resolveFunctions] = []
   }
 
-  async #createLock() {
-    await new Promise((r) => this[resolveFunctions].push(r))
+  #createLock() {
+    return new Promise((r) => this[resolveFunctions].push(r))
   }
 
   async Lock() {
-    await this.#createLock()
+    return this.#createLock()
   }
 
   UnLock() {
