@@ -8,13 +8,11 @@ class Mutex {
   }
 
   async Lock() {
-    this[count]++
-    if (this[count] > 1) await this[barrier].Lock()
+    (++this[count] > 1) && await this[barrier].Lock()
   }
 
   UnLock() {
-    if (this[count] > 1) this[barrier].UnLock()
-    this[count]--
+    (--this[count] > 0) && this[barrier].UnLock()
   }
 }
 
