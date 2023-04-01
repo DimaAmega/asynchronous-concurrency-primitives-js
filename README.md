@@ -61,3 +61,14 @@ Coroutine 2: Out CS
 Coroutine 2: mutex UnLock was invoked :)
 Coroutine 2: Done
 ```
+
+### Get started:
+deps:
+```shell
+npm i
+```
+
+run tests:
+```shell
+npm test
+```
