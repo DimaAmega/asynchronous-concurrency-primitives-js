@@ -40,7 +40,7 @@ describe("Simple tests", () => {
     }
   }
 
-  const executeExclusive = async (cb, type) => {
+  const execute = async (cb, type) => {
     if (type === "reader") {
       await rwmutex.RLock()
     } else if (type === "writer") {
@@ -70,8 +70,8 @@ describe("Simple tests", () => {
 
   test("reader and writer", async () => {
     await Promise.all([
-      executeExclusive(CSJob, "reader"),
-      executeExclusive(CSJob, "writer"),
+      execute(CSJob, "reader"),
+      execute(CSJob, "writer"),
     ])
   })
 
@@ -81,7 +81,7 @@ describe("Simple tests", () => {
     await Promise.all(
       Array(50)
         .fill()
-        .map(() => executeExclusive(CSJob, "writer"))
+        .map(() => execute(CSJob, "writer"))
     )
     console.timeEnd("a few writers")
   })
@@ -92,7 +92,7 @@ describe("Simple tests", () => {
     await Promise.all(
       Array(50)
         .fill()
-        .map(() => executeExclusive(CSJob, "reader"))
+        .map(() => execute(CSJob, "reader"))
     )
     console.timeEnd("a few readers")
   })
@@ -103,10 +103,10 @@ describe("Simple tests", () => {
     await Promise.all([
       ...Array(500)
         .fill()
-        .map(() => executeExclusive(CSJob, "reader")),
+        .map(() => execute(CSJob, "reader")),
       ...Array(500)
         .fill()
-        .map(() => executeExclusive(CSJob, "writer")),
+        .map(() => execute(CSJob, "writer")),
     ])
     console.timeEnd("readers and writers")
   })
