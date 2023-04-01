@@ -8,6 +8,8 @@ There are a few asynchronous concurrency primitives js:
 
 - [barrier.js](./examples/simple-barrier.js) 
 - [mutex.js](./examples/simple-mutex.js)
+- [rwmutex.js](./tests/rwmutex.test.js#L71)
+
 
 Also see [tests](./tests)
 
