@@ -1,6 +1,9 @@
 # asynchronous concurrency primitives js
 [![Node.js CI](https://github.com/DimaAmega/asynchronous-mutex-js/actions/workflows/tests.js.yml/badge.svg)](https://github.com/DimaAmega/asynchronous-mutex-js/actions/workflows/tests.js.yml)
 
+[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/DimaAmega/asynchronous-concurrency-primitives-js
+)
+
 There are a few asynchronous concurrency primitives js:
 
 - [barrier.js](./examples/simple-barrier.js) 
