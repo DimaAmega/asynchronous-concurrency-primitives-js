@@ -8,12 +8,45 @@ There are a few asynchronous concurrency primitives js:
 
 Also see [tests](./tests)
 
+### Get started:
+deps:
+```shell
+npm i
+```
+
+run tests:
+```shell
+npm test
+```
+
+### Barrier
+```js
+const Coroutines = [0, 1, 2, 3].map((n) => `coroutine ${n}`)
+
+// Global variables
+const b = new Barrier()
+const c = new ColorLog()
+
+;(async () => {
+  c.log(`Lock barrier`, Coroutines[0])
+  await b.Lock()
+  c.log(`Done`, Coroutines[0])
+})()
+
+;(async () => {
+  c.log(`Sleep 1s ...`, Coroutines[1])
+  await sleep(1)
+  b.UnLock()
+  c.log(`barrier UnLock was invoked :)`, Coroutines[1])
+})()
+```
+
+<img width="763" alt="image" src="https://user-images.githubusercontent.com/32310771/229280109-cb6c15a9-4267-42b4-8bc6-b8e8710dc2cc.png">
+
+
+
 ### Mutex
 ```js
-const Mutex = require(`../src/mutex`)
-const ColorLog = require("../src/helpers/color-log")
-const sleep = require("../src/helpers/sleep")
-
 // setup
 const CoroutineS_NUMBER = 3
 const Coroutines = [...Array(CoroutineS_NUMBER).keys()].map(
@@ -47,35 +80,5 @@ const CreateWorker = (sleepTime, workerNumber) => async () => {
   await Promise.all(promises)
 })()
 ```
-### stdout:
-```bash
-Coroutine 0: Lock mutex
-Coroutine 1: Lock mutex
-Coroutine 2: Lock mutex
-Coroutine 0: In CS
-Coroutine 0: Sleep 0s ...
-Coroutine 0: Out CS
-Coroutine 0: mutex UnLock was invoked :)
-Coroutine 0: Done
-Coroutine 1: In CS
-Coroutine 1: Sleep 1s ...
-Coroutine 1: Out CS
-Coroutine 1: mutex UnLock was invoked :)
-Coroutine 1: Done
-Coroutine 2: In CS
-Coroutine 2: Sleep 2s ...
-Coroutine 2: Out CS
-Coroutine 2: mutex UnLock was invoked :)
-Coroutine 2: Done
-```
 
-### Get started:
-deps:
-```shell
-npm i
-```
-
-run tests:
-```shell
-npm test
-```
+<img width="763" alt="image" src="https://user-images.githubusercontent.com/32310771/229280139-6e301420-da92-4e8f-a12f-f41d6515bc00.png">
