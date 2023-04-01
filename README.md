@@ -1,6 +1,11 @@
 # asynchronous concurrency primitives js
 [![Node.js CI](https://github.com/DimaAmega/asynchronous-mutex-js/actions/workflows/tests.js.yml/badge.svg)](https://github.com/DimaAmega/asynchronous-mutex-js/actions/workflows/tests.js.yml)
 
+There are a few asynchronous concurrency primitives js:
+
+- [barrier.js](./examples/simple-barrier.js) 
+- [mutex.js](./examples/simple-mutex.js)
+
 ### simple example (see examples/simple-mutex.js)
 ```js
 const Mutex = require(`../src/mutex`)
