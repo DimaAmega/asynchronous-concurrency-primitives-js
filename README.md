@@ -8,7 +8,7 @@ There are a few asynchronous concurrency primitives js:
 
 Also see [tests](./tests)
 
-### simple example (see examples/simple-mutex.js)
+### Mutex
 ```js
 const Mutex = require(`../src/mutex`)
 const ColorLog = require("../src/helpers/color-log")
