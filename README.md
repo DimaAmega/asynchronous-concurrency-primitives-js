@@ -6,6 +6,8 @@ There are a few asynchronous concurrency primitives js:
 - [barrier.js](./examples/simple-barrier.js) 
 - [mutex.js](./examples/simple-mutex.js)
 
+Also see [tests](./tests)
+
 ### simple example (see examples/simple-mutex.js)
 ```js
 const Mutex = require(`../src/mutex`)
