@@ -46,9 +46,11 @@ describe("Simple tests", () => {
     } else if (type === "writer") {
       await rwmutex.Lock()
     } else {
-      throw "unsupported 1"
+      throw "unsupported"
     }
+
     await cb(type)
+
     if (type === "reader") {
       await rwmutex.RUnLock()
     } else if (type === "writer") {
