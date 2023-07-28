@@ -76,30 +76,22 @@ describe("Simple tests", () => {
   })
 
   test("a few writers", async () => {
-    console.time("a few writers")
-
     await Promise.all(
       Array(50)
         .fill()
         .map(() => execute(CSJob, "writer"))
     )
-    console.timeEnd("a few writers")
   })
 
   test("a few readers", async () => {
-    console.time("a few readers")
-
     await Promise.all(
       Array(50)
         .fill()
         .map(() => execute(CSJob, "reader"))
     )
-    console.timeEnd("a few readers")
   })
 
   test("readers and writers", async () => {
-    console.time("readers and writers")
-
     await Promise.all([
       ...Array(500)
         .fill()
@@ -108,6 +100,5 @@ describe("Simple tests", () => {
         .fill()
         .map(() => execute(CSJob, "writer")),
     ])
-    console.timeEnd("readers and writers")
   })
 })
